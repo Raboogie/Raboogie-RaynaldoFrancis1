@@ -6,7 +6,7 @@ class Form extends Component {
 
     /* TODO - set initial state for link name and URL */
     this.state = { Name: "ray", URL: "fran" };
-    this.handleSubmit = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
@@ -14,7 +14,8 @@ class Form extends Component {
     /*
             TODO - Logic for changing state based on form changes
         */
-
+    console.log({ Name: event.target.value });
+    console.log({ URL: event.target.value });
     this.setState({ Name: event.target.value });
     this.setState({ URL: event.target.value });
   };
@@ -26,9 +27,12 @@ class Form extends Component {
     /*
             TODO - Logic for calling props to handle submission and setting state changes
         */
+
+    console.log({ Name: event.target.value });
     alert(this.state.Name + " " + this.state.URL);
 
     let formData = { Name: this.state.Name, URL: this.state.URL };
+    console.log(formData.Name + " " + formData.URL);
   };
 
   render() {
@@ -41,7 +45,7 @@ class Form extends Component {
             size="175"
             type="text"
             value={this.state.Name}
-            onChange={this.handleChange}
+            onChange={(e) => this.setState({ Name: e.target.value })} // (e) => this.setState({ Name: e.target.value })
           />
         </div>
         <div>
@@ -50,7 +54,7 @@ class Form extends Component {
             size="175"
             type="text"
             value={this.state.URL}
-            onChange={this.handleChange}
+            onChange={(e) => this.setState({ URL: e.target.value })}
           />
         </div>
         <button type="submit">Submit</button>
