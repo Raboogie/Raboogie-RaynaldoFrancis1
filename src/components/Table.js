@@ -1,5 +1,4 @@
 import React from "react";
-// const linkData = [{ name: "The name of ", URL: "The url of" }];
 
 const TableHeader = () => {
   // boilerplate table header functional component
@@ -30,7 +29,6 @@ const TableBody = (props) => {
       </tr>
     );
   });
-
   return <tbody>{rows}</tbody>;
 };
 
@@ -44,7 +42,7 @@ const Table = (props) => {
     <div>
       <table>
         <TableHeader></TableHeader>
-        <TableBody linkData={props.pass}></TableBody>
+        <TableBody linkData={props.pass} removeLink={props.del}></TableBody>
       </table>
     </div>
   );
